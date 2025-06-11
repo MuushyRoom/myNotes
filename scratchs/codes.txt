@@ -1,0 +1,36 @@
+
+        <?php if ($result->num_rows > 0): ?>
+          <?php while ($row = $result->fetch_assoc()): ?>
+            <div class="display-created-note" onclick="openNote(this,'<?php echo $row['note_id']; ?>')" >
+              <div class="note-contents" data-id="<?= $row['note_id'] ?>">
+
+             
+
+
+            <form method="post" action="myNotes.php" id="created-note-form"  enctype="multipart/form-data">
+
+            <textarea class="created-note-title" maxlength="60"><?= $row['title'] ?></textarea>
+
+            <textarea class="created-note-content" ><?= $row['content'] ?> </textarea>
+
+            <div >
+              <label>
+                <input type="checkbox" > Favorites
+              </label>
+            </div>
+
+          </form>
+
+
+
+
+
+
+
+
+              </div>
+            </div>
+
+
+          <?php endwhile; ?>
+        <?php endif; ?>

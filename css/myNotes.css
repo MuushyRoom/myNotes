@@ -1,0 +1,437 @@
+html, 
+body {
+    height: 100%;
+width: 100%;
+padding: 0px;
+margin: 0px;
+overflow-x: hidden;
+
+}
+h1{
+     font-size: 45px;
+     margin-top: 0;
+        margin-bottom: 0;
+}
+
+
+body{
+display: flex;
+flex-direction: column;
+height: 100vh;
+color:rgb(244, 255, 255);
+ background-color: #333446;
+
+}
+
+/*CONTAINS HEADER AND NOTE CONTAINER  settings*/
+
+.body-content{
+
+    display: flex;
+    flex-direction: column;
+    flex: auto;
+    justify-content: space-between;
+    
+
+}
+
+
+header{
+      position: sticky;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+    top: 0;
+   background-color: #333446;
+   color: #f1f1f1;
+    padding: 25px 15px;
+    height: 50px;
+ 
+ 
+}
+header a{
+color: #EAEFEF;
+border: 2px solid black;
+padding: 6px;
+background-color: black;
+text-decoration: none;
+border-radius: 5px;
+}
+
+/*NOTES BODY CONTAINERS settings*/
+
+.notes-container{
+  flex: 3;
+  overflow: auto;
+  height: inherit;
+  width: inherit;
+
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+
+}
+
+/*ACTIVE CREATE NOTES CONTAINERS settings*/
+.active-note-content{
+font-size:1.0rem;
+border:2px solid rgb(0, 247, 255);
+border-radius:7px;
+ padding: 15px 15px;
+box-shadow: rgba(0, 0, 0, 0.15) 0px 15px 25px, rgba(0, 0, 0, 0.05) 0px 5px 10px;
+}
+
+.active-note-content textarea{
+
+ 
+     -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+     -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+     box-sizing: border-box;  
+     resize:none;
+     overflow:hidden;
+      width: 100%;
+ 
+    background-color:#333446;
+color: #ffffff;
+margin:3px 0px;
+
+ 
+}
+
+.active-note-content #create-note-title{
+  font-size: 23px;
+  max-height:355px;
+border:none;
+outline:none;
+border-bottom:2px solid rgba(0, 0, 0, 0.438);
+min-height:42px;
+  padding:9px 13px 5px 13px;
+box-shadow: rgba(0, 0, 0, 0.342) 0px 2px 4px 0px inset;
+margin-bottom:8px;
+}
+
+.active-note-content #create-note-content{
+  font-size: 18px;
+  max-height:455px;
+  height:45px;
+border:none;
+outline:none;
+overflow:auto;
+   padding:15px 13px;
+color:rgb(255, 255, 255);
+box-shadow: rgba(0, 0, 0, 0.342) 0px 2px 4px 0px inset;
+border:1px solid black;
+}
+
+
+
+
+
+/*INACTIVE CREATE NOTES CONTAINERS settings*/
+
+.inactive-note-content{
+
+border-radius:7px;
+
+margin: 0px;
+
+  overflow-y:auto;
+    overflow-x:hidden;
+    font-size: 15px;
+    display:flex;
+    flex-direction:space-around;
+box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+}
+.inactive-note-content #create-note-content{
+  font-size:20px;
+  font-weight:800;
+  height:50px;
+  padding-top:23px;
+ border: none;
+  text-align:center;
+  display:block;
+
+   
+}
+
+.inactive-note-content textarea{
+     -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+     -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+     box-sizing: border-box;  
+     resize:none;
+     overflow:hidden;
+      width: 100%;
+      border: none;
+    background-color:#333446;
+color: #ffffff;
+
+}
+
+
+
+/*CREATE NOTES CONTAINERS settings*/
+
+.create-note-container{
+      
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+   padding: 20px 15px;
+
+}
+
+/*MIDDLE BOX*/
+.create-note-box{
+  width: 600px;
+ display: block;
+
+}
+
+
+
+
+
+/*DISPLAYING NOTES CONTAINER settings*/
+
+
+.pinned-notes{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+ flex-wrap: wrap;
+  
+}
+
+.normal-notes{
+ display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+ 
+}
+
+
+h4{
+  padding-left: 22px;
+}
+
+
+
+
+/*onDISPLAY*/
+.display-created-note{
+width: 350px;
+height: 172px;
+box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+border-radius: 14px;
+margin:5px;
+
+}
+
+.display-created-note form{
+border:1px solid black;
+border-radius: 13px;
+
+}
+
+.display-created-note textarea{
+
+     -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+     -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+     box-sizing: border-box;  
+     resize:none;
+     overflow:hidden;
+      width: 100%;
+ 
+    background-color:#333446;
+color: #ffffff;
+margin:5px 0px;
+
+}
+.display-created-note fieldset{
+border:none;
+}
+.display-created-note .display-note-title{
+  font-size: 23px;
+border:none;
+outline:none;
+height:39px;
+  padding:7px 13px 5px 13px;
+
+margin-bottom:8px;
+}
+
+.display-created-note .display-note-content{
+ font-size: 18px;
+  max-height:455px;
+  height:42px;
+border:none;
+outline:none;
+   padding:25px 13px;
+color:rgb(255, 255, 255);
+
+  
+}
+
+
+.display-created-note a{
+color: white;
+text-decoration: none;
+}
+
+
+/*OPENING A NOTE*/
+
+
+
+
+.hide{
+  
+    display: none;
+}
+
+.open-selected-note{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 600px;
+  max-width: 600px;
+  max-height: 600px;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+  background: #333446;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+  border-radius: 16px;
+  overflow: auto;
+  padding: 24px;
+
+}
+.open-selected-note fieldset{
+border: none;
+
+}
+.open-selected-note form {
+  width: 600px;
+  max-width: 600px;
+  max-height: 600px;
+  overflow-y: hidden;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  background: transparent; /* or set a background if needed */
+  box-sizing: border-box;
+  padding: 0; /* adjust if you want padding */
+}
+
+/*OPEN SELECTED NOTE CONTAINER settings*/
+.open-selected-note {
+  font-size: 1.0rem;
+  border: 2px solid rgb(0, 247, 255);
+  border-radius: 7px;
+  padding: 15px 15px;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 15px 25px, rgba(0, 0, 0, 0.05) 0px 5px 10px;
+}
+
+.open-selected-note textarea {
+  box-sizing: border-box;
+  resize: none;
+  overflow-y: auto;
+  overflow-x: hidden;
+  width: 100%;
+  background-color: #333446;
+  color: #ffffff;
+  margin: 3px 0px;
+
+}
+
+.open-selected-note .display-note-title {
+  font-size: 23px;
+  max-height: 355px;
+  height: auto;
+  border: none;
+  outline: none;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.438);
+  min-height: 42px;
+  padding: 9px 13px 5px 13px;
+  box-shadow: rgba(0, 0, 0, 0.342) 0px 2px 4px 0px inset;
+  margin-bottom: 8px;
+}
+
+.open-selected-note .display-note-content{
+   font-size: 18px;
+  min-height: 45px;
+  max-height: 455px;
+    height: inherit;
+  border: none;
+  outline: none;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 15px 13px;
+  color: rgb(255, 255, 255);
+  box-shadow: rgba(0, 0, 0, 0.342) 0px 2px 4px 0px inset;
+  border: 1px solid black;
+  width: 100%;
+  resize: none;
+  background: #333446;
+}
+
+.show-background{
+    position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(60, 60, 60, 0.6); /* semi-transparent gray */
+  z-index: 9998; /* just below .open-selected-note */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*scroll bar settings*/
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+}
+
+
+
+::placeholder {
+  color: rgb(228, 220, 232);
+  /* Firefox */
+}
+
+::-ms-input-placeholder { /* Edge 12 -18 */
+     color: rgb(228, 220, 232);
+}
