@@ -1,53 +1,23 @@
+
 function openNote(note_id) {
     const selected_note = document.querySelector('div[data-id="div' + note_id + '"]');
+    const form = document.querySelector('form[data-id="form' + note_id + '"]');
     const bg = document.querySelector('#capsule');
 
-    // Get the title and content textareas
-    const titleTextarea = document.querySelector('textarea[data-id="title' + note_id + '"]');
-    const contentTextarea = document.querySelector('textarea[data-id="content' + note_id + '"]');
 
     selected_note.classList.add('open-selected-note');
     selected_note.classList.remove('display-created-note');
     bg.classList.remove('hide');
 
-    // Store original heights
-    let originalTitleHeight = titleTextarea ? titleTextarea.style.height : '';
-    let originalContentHeight = contentTextarea ? contentTextarea.style.height : '';
-
-    // Auto-resize function defined inside openNote
-    function autoResizeTextarea(textarea) {
-        function resize() {
-            textarea.style.height = 'auto';
-            textarea.style.height = textarea.scrollHeight + 'px';
-        }
-        textarea.addEventListener('input', resize);
-        resize();
-    }
-
-    // Remove readonly when opening and auto-resize
-    if (titleTextarea) {
-        titleTextarea.removeAttribute('readonly');
-        autoResizeTextarea(titleTextarea);
-    }
-    if (contentTextarea) {
-        contentTextarea.removeAttribute('readonly');
-        autoResizeTextarea(contentTextarea);
-    }
 
     function handleClick(e) {
         if (!selected_note.contains(e.target)) {
+            // Submit the form before closing
+           submit(note_id);
+
             selected_note.classList.remove('open-selected-note');
             selected_note.classList.add('display-created-note');
             bg.classList.add('hide');
-            // Restore readonly and original height when closing
-            if (titleTextarea) {
-                titleTextarea.setAttribute('readonly', true);
-                titleTextarea.style.height = originalTitleHeight;
-            }
-            if (contentTextarea) {
-                contentTextarea.setAttribute('readonly', true);
-                contentTextarea.style.height = originalContentHeight;
-            }
             document.removeEventListener('click', handleClick);
         }
     }
@@ -63,3 +33,27 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
+document.addEventListener('DOMContentLoaded', function() {
+    // Submit the form when the pin checkbox is clicked
+    document.querySelectorAll('input[type="checkbox"][name="pinned-checkbox"]').forEach(function(checkbox) {
+        checkbox.addEventListener('change', function() {
+            const form = this.closest('form[data-id="form' + this.dataset.id + '"]');
+            if (form) {
+                form.submit();
+            }
+        });
+    });
+
+    // Prevent openNote when clicking delete link
+    document.querySelectorAll('.delete-note-link').forEach(function(link) {
+        link.addEventListener('click', function(event) {
+            event.stopPropagation();
+        });
+    });
+});
+
+function submit(note_id){
+    const form = document.querySelector('form[data-id="form' + note_id + '"]');
+    form.submit();
+
+}
