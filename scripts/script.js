@@ -85,4 +85,16 @@ function pin(note_id){
 }
 
 
+function togglePin(){
+ const checkbox = document.getElementById('pinned-checkbox');
+ const pinned_icon = document.getElementById('create-pinned-icon');
+  const unpinned_icon = document.getElementById('create-unpinned-icon');
+ if(checkbox.checked == false){
+pinned_icon.classList.add('hide');
+unpinned_icon.classList.remove('hide');
+ }else{
+pinned_icon.classList.remove('hide');
+unpinned_icon.classList.add('hide');
+ }
 
+}

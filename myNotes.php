@@ -90,7 +90,10 @@ $is_pinned = isset($_POST["checkbox"]) && $_POST["checkbox"] == "1" ? 1 : 0;
 
             <div class="hide" id="create-note-options">
               <label for="pinned-checkbox">
-                <input type="checkbox" id="pinned-checkbox" name="pinned" value="1"> Pin
+                <input hidden type="checkbox" id="pinned-checkbox" name="pinned" value="1" onclick="togglePin()">
+               
+                  <img src="img/unpinned.svg" id="create-unpinned-icon" class="" alt="unpinned icon">
+                   <img src="img/pinned.svg" id="create-pinned-icon" alt="pinned icon" class="hide">
               </label>
             </div>
 

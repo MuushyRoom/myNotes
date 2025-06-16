@@ -36,27 +36,4 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 
-//FUNCTION FOR EVENT PROPAGATION FOR PIN
-/**
-document.addEventListener('DOMContentLoaded', function() {
-
-    // Submit the form when the pin checkbox is clicked
-    document.querySelectorAll('input[type="checkbox"][name="pinned-checkbox"]').forEach(function(checkbox) {
-        checkbox.addEventListener('change', function() {
-            const form = this.closest('form[data-id="form' + this.dataset.id + '"]');
-            if (form) {
-                form.submit();
-            }
-        });
-    });
-
-    // Prevent openNote when clicking delete link
-    document.querySelectorAll('.delete-note-link').forEach(function(link) {
-        link.addEventListener('click', function(event) {
-            event.stopPropagation();
-        });
-    });
-});
-
- */
 
