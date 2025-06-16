@@ -281,6 +281,12 @@ text-decoration: none;
 }
 
 
+.display-created-note .display-note-buttons-container{
+display: flex;
+flex-direction: row;
+justify-content: space-between;
+}
+
 /*OPENING A NOTE*/
 
 
@@ -309,6 +315,7 @@ text-decoration: none;
 }
 .open-selected-note fieldset{
 border: none;
+
 
 }
 .open-selected-note form {

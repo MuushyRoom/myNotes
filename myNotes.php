@@ -136,7 +136,7 @@ $is_pinned = isset($_POST["checkbox"]) && $_POST["checkbox"] == "1" ? 1 : 0;
                     
 
                   </fieldset>
-                  <fieldset  data-id="display_note_buttons<?= $row['note_id'] ?>">
+                  <fieldset class="display-note-buttons-container"  data-id="display_note_buttons<?= $row['note_id'] ?>">
   
 
 <!-- PIN PART -->  
@@ -152,7 +152,7 @@ else:?>
 
   <?php endif; ?>
   <!-- /PIN PART -->  
-                    <a  href="delete_note.php?note_id=<?= $row['note_id'] ?>&user_id=<?= $user_id ?>" class="delete-note-link">Delete note</a>
+                    <a  href="delete_note.php?note_id=<?= $row['note_id'] ?>&user_id=<?= $user_id ?>" class="delete-note-link"><img src="img/bin.png" alt="Delete Button"></a>
 
                   </fieldset>
                 </form>
@@ -180,7 +180,7 @@ else:?>
 
         if ($userCreatedNotes->num_rows > 0): ?>
           <?php while ($row = $userCreatedNotes->fetch_assoc()): ?>
-            <div class="display-created-note"  onclick="openNote('<?php echo $row['note_id']; ?>')"  data-id="div<?= $row['note_id'] ?>">
+    <div class="display-created-note"  onclick="openNote('<?php echo $row['note_id']; ?>')"  data-id="div<?= $row['note_id'] ?>">
               <div>
                 <form data-id="form<?= $row['note_id'] ?>" method="post">
                  <input type="hidden" name="note_id" value="<?= $row['note_id'] ?>">
@@ -192,11 +192,11 @@ else:?>
                     
 
                   </fieldset>
-                  <fieldset  data-id="display_note_buttons<?= $row['note_id'] ?>">
+                  <fieldset class="display-note-buttons-container"  data-id="display_note_buttons<?= $row['note_id'] ?>">
   
 
 <!-- PIN PART -->  
- <input hidden type="checkbox" value="1" name="checkbox" class="delete-note-link" 
+ <input type="checkbox" hidden value="1" name="checkbox" class="delete-note-link" 
  data-id="<?= $row['note_id'] ?>" <?= $row['is_pinned'] == 1 ? 'checked' : '' ?>>
 <?php 
 if($row['is_pinned'] == 1):?>
@@ -208,13 +208,12 @@ else:?>
 
   <?php endif; ?>
   <!-- /PIN PART -->  
-                    <a  href="delete_note.php?note_id=<?= $row['note_id'] ?>&user_id=<?= $user_id ?>" class="delete-note-link">Delete note</a>
+                    <a  href="delete_note.php?note_id=<?= $row['note_id'] ?>&user_id=<?= $user_id ?>" class="delete-note-link"><img src="img/bin.png" alt="Delete Button"></a>
 
                   </fieldset>
                 </form>
               </div>
             </div>
-          
           <?php endwhile; ?>
         <?php endif; ?>
 
