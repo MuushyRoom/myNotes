@@ -13,7 +13,7 @@ function openNote(note_id) {
     function handleClick(e) {
         if (!selected_note.contains(e.target)) {
             // Submit the form before closing
-           submit(note_id);
+           
 
             selected_note.classList.remove('open-selected-note');
             selected_note.classList.add('display-created-note');
@@ -25,6 +25,7 @@ function openNote(note_id) {
     document.addEventListener('click', handleClick);
 }
 
+//FUNCTION FOR EVENT PROPAGATION FOR DELETE
 document.addEventListener('DOMContentLoaded', function() {
     document.querySelectorAll('.delete-note-link').forEach(function(link) {
         link.addEventListener('click', function(event) {
@@ -33,7 +34,12 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
+
+
+//FUNCTION FOR EVENT PROPAGATION FOR PIN
+/**
 document.addEventListener('DOMContentLoaded', function() {
+
     // Submit the form when the pin checkbox is clicked
     document.querySelectorAll('input[type="checkbox"][name="pinned-checkbox"]').forEach(function(checkbox) {
         checkbox.addEventListener('change', function() {
@@ -52,8 +58,5 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-function submit(note_id){
-    const form = document.querySelector('form[data-id="form' + note_id + '"]');
-    form.submit();
+ */
 
-}

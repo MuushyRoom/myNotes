@@ -134,9 +134,21 @@ $is_pinned = isset($_POST["checkbox"]) && $_POST["checkbox"] == "1" ? 1 : 0;
 
                   </fieldset>
                   <fieldset  data-id="display_note_buttons<?= $row['note_id'] ?>">
-   
-<input type="checkbox" value="1" name="checkbox" class="delete-note-link" onclick="submit('<?php echo $row['note_id']; ?>')" data-id="<?= $row['note_id'] ?>" <?= $row['is_pinned'] == 1 ? 'checked' : '' ?>>
+  
 
+<!-- PIN PART -->  
+ <input type="checkbox" hidden value="1" name="checkbox" class="delete-note-link" 
+ data-id="<?= $row['note_id'] ?>" <?= $row['is_pinned'] == 1 ? 'checked' : '' ?>>
+<?php 
+if($row['is_pinned'] == 1):?>
+<img class="pin-icon delete-note-link" src="img/pinned.svg" id="pinned-icon" alt="pinned icon" onclick="unpin('<?php echo $row['note_id'];?>')">
+
+<?php
+else:?>
+  <img class="pin-icon delete-note-link" src="img/unpinned.svg" id="unpinned-icon" alt="unpinned icon" onclick="pin('<?php echo $row['note_id'];?>')">
+
+  <?php endif; ?>
+  <!-- /PIN PART -->  
                     <a  href="delete_note.php?note_id=<?= $row['note_id'] ?>&user_id=<?= $user_id ?>" class="delete-note-link">Delete note</a>
 
                   </fieldset>
@@ -165,9 +177,9 @@ $is_pinned = isset($_POST["checkbox"]) && $_POST["checkbox"] == "1" ? 1 : 0;
 
         if ($userCreatedNotes->num_rows > 0): ?>
           <?php while ($row = $userCreatedNotes->fetch_assoc()): ?>
-             <div class="display-created-note"  onclick="openNote('<?php echo $row['note_id']; ?>')"  data-id="div<?= $row['note_id'] ?>">
+            <div class="display-created-note"  onclick="openNote('<?php echo $row['note_id']; ?>')"  data-id="div<?= $row['note_id'] ?>">
               <div>
-                <form  data-id="form<?= $row['note_id'] ?>" method="post">
+                <form data-id="form<?= $row['note_id'] ?>" method="post">
                  <input type="hidden" name="note_id" value="<?= $row['note_id'] ?>">
                   <fieldset>
   
@@ -179,13 +191,27 @@ $is_pinned = isset($_POST["checkbox"]) && $_POST["checkbox"] == "1" ? 1 : 0;
                   </fieldset>
                   <fieldset  data-id="display_note_buttons<?= $row['note_id'] ?>">
   
-  <input type="checkbox" name="checkbox" value="1" class="delete-note-link" onclick="submit('<?php echo $row['note_id']; ?>')" data-id="<?= $row['note_id'] ?>" <?= $row['is_pinned'] == 1 ? 'checked' : '' ?>>
+
+<!-- PIN PART -->  
+ <input hidden type="checkbox" value="1" name="checkbox" class="delete-note-link" 
+ data-id="<?= $row['note_id'] ?>" <?= $row['is_pinned'] == 1 ? 'checked' : '' ?>>
+<?php 
+if($row['is_pinned'] == 1):?>
+<img class="pin-icon delete-note-link" src="img/pinned.svg" id="pinned-icon" alt="pinned icon" onclick="unpin('<?php echo $row['note_id'];?>')">
+
+<?php
+else:?>
+  <img class="pin-icon delete-note-link" src="img/unpinned.svg" id="unpinned-icon" alt="unpinned icon" onclick="pin('<?php echo $row['note_id'];?>')">
+
+  <?php endif; ?>
+  <!-- /PIN PART -->  
                     <a  href="delete_note.php?note_id=<?= $row['note_id'] ?>&user_id=<?= $user_id ?>" class="delete-note-link">Delete note</a>
 
                   </fieldset>
                 </form>
               </div>
             </div>
+          
           <?php endwhile; ?>
         <?php endif; ?>
 

@@ -421,3 +421,11 @@ border: none;
 ::-ms-input-placeholder { /* Edge 12 -18 */
      color: rgb(228, 220, 232);
 }
+
+
+/* PIN ICON */
+
+img {
+width: 20px;
+height: 20px;
+}
