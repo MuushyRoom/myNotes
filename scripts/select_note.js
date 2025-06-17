@@ -3,32 +3,23 @@ function openNote(note_id) {
     const selected_note = document.querySelector('div[data-id="div' + note_id + '"]');
     const form = document.querySelector('form[data-id="form' + note_id + '"]');
     const bg = document.querySelector('#capsule');
-
+    const body = document.querySelector('body');
 
     selected_note.classList.add('open-selected-note');
     selected_note.classList.remove('display-created-note');
+   
     bg.classList.remove('hide');
 
-
-
-
-  
-        // Initial resize
-        
-        // Resize on input
-       
-
-
-
-
+          console.log(form); // Should not be null
     function handleClick(e) {
         if (!selected_note.contains(e.target)) {
-            // Submit the form before closing
-           
+          console.log(form); // Should not be null
+form.submit();
 
             selected_note.classList.remove('open-selected-note');
             selected_note.classList.add('display-created-note');
             bg.classList.add('hide');
+         
             document.removeEventListener('click', handleClick);
         }
     }

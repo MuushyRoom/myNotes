@@ -4,7 +4,7 @@ body {
 width: 100%;
 padding: 0px;
 margin: 0px;
-overflow-x: hidden;
+
 
 }
 h1{
@@ -20,7 +20,7 @@ flex-direction: column;
 height: 100vh;
 color:rgb(244, 255, 255);
  background-color: #333446;
-
+overflow-x: hidden;
 }
 
 /*CONTAINS HEADER AND NOTE CONTAINER  settings*/
@@ -34,20 +34,28 @@ color:rgb(244, 255, 255);
     
 
 }
+.logout-btn{
+  padding: 8px 13px;
+  border:2px solid rgb(216, 67, 67);
+  background-color:rgb(216, 67, 67);
+  color: #ffffff;
+  font-weight: bolder;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 15px 25px, rgba(0, 0, 0, 0.05) 0px 5px 10px;
+}
 
 
 header{
       position: sticky;
-      display: flex;
-      flex-direction: row;
-      justify-content: space-between;
+   display: flex;
+   justify-content:space-between;
+   align-items: center;
     top: 0;
    background-color: #333446;
    color: #f1f1f1;
     padding: 25px 15px;
     height: 50px;
- 
- 
+
+ border-bottom:1px solid rgb(0, 247, 255);
 }
 header a{
 color: #EAEFEF;
@@ -62,7 +70,7 @@ border-radius: 5px;
 
 .notes-container{
   flex: 3;
-  overflow: auto;
+  overflow: visible;
   height: inherit;
   width: inherit;
 
@@ -291,6 +299,7 @@ height: 100%;
 /*OPENING A NOTE*/
 
 .open-selected-note{
+
   position: absolute;
   top: 50%;
   left: 50%;
@@ -346,6 +355,14 @@ max-height: 550px;
 font-size: 15px;
 
 }
+.open-selected-note .display-note-buttons-container{
+  margin-top: 25px;
+display: flex;
+flex-direction: row;
+justify-content: space-between;
+height: 100%;
+width: 90%;
+}
 
 .show-background{
     position: fixed;
@@ -353,7 +370,7 @@ font-size: 15px;
   left: 0;
   width: 100vw;
   height: 100vh;
-  background: rgba(60, 60, 60, 0.6); /* semi-transparent gray */
+  background: rgba(0, 0, 0, 0.856); /* semi-transparent gray */
   z-index: 9998; /* just below .open-selected-note */
 }
 
@@ -409,3 +426,4 @@ height: 20px;
   
     display: none;
 }
+

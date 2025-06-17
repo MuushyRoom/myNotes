@@ -52,15 +52,10 @@ $is_pinned = isset($_POST["checkbox"]) && $_POST["checkbox"] == "1" ? 1 : 0;
 
     <!-- HEADER -->
     <header>
-      
-
+      <div>
     
-        <input type="text" name="search" placeholder="Search" autocomplete="off">
-
-        
-    
-        <a href="logout.php">Logout</a>
-      
+    <h1 style="text-align: center;">myNotes</h1></div>
+    <a href="logout.php" class="logout-btn">Logout</a>
     </header>
     <!-- HEADER -->
 
