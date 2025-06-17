@@ -55,7 +55,7 @@ $is_pinned = isset($_POST["checkbox"]) && $_POST["checkbox"] == "1" ? 1 : 0;
       
 
     
-        <input type="text" name="search" value="Search" autocomplete="off">
+        <input type="text" name="search" placeholder="Search" autocomplete="off">
 
         
     
@@ -124,15 +124,15 @@ $is_pinned = isset($_POST["checkbox"]) && $_POST["checkbox"] == "1" ? 1 : 0;
 
         if ($userCreatedNotes->num_rows > 0): ?>
           <?php while ($row = $userCreatedNotes->fetch_assoc()): ?>
-            <div class="display-created-note"  onclick="openNote('<?php echo $row['note_id']; ?>')"  data-id="div<?= $row['note_id'] ?>">
+             <div class="display-created-note"  onclick="openNote('<?php echo $row['note_id']; ?>')"  data-id="div<?= $row['note_id'] ?>">
               <div>
                 <form data-id="form<?= $row['note_id'] ?>" method="post">
                  <input type="hidden" name="note_id" value="<?= $row['note_id'] ?>">
                   <fieldset>
   
-                 <textarea maxlength="60" class="display-note-title"  name="note-title" data-id="title<?= $row['note_id'] ?>"><?= $row['title'] ?></textarea>
+                 <textarea maxlength="60" class="display-note-title" placeholder="Title" name="note-title" data-id="title<?= $row['note_id'] ?>"><?= $row['title'] ?></textarea>
 
-                  <textarea name="note-content" class="display-note-content" data-id="content<?= $row['note_id'] ?>"><?= $row['content']  ?> </textarea>
+                  <textarea name="note-content" class="display-note-content" placeholder="Take a note..." data-id="content<?= $row['note_id'] ?>"><?= $row['content']  ?> </textarea>
                     
 
                   </fieldset>
@@ -186,9 +186,9 @@ else:?>
                  <input type="hidden" name="note_id" value="<?= $row['note_id'] ?>">
                   <fieldset>
   
-                 <textarea maxlength="60" class="display-note-title"  name="note-title" data-id="title<?= $row['note_id'] ?>"><?= $row['title'] ?></textarea>
+                 <textarea maxlength="60" class="display-note-title" placeholder="Title" name="note-title" data-id="title<?= $row['note_id'] ?>"><?= $row['title'] ?></textarea>
 
-                  <textarea name="note-content" class="display-note-content" data-id="content<?= $row['note_id'] ?>"><?= $row['content']  ?> </textarea>
+                  <textarea name="note-content" class="display-note-content" placeholder="Take a note..." data-id="content<?= $row['note_id'] ?>"><?= $row['content']  ?> </textarea>
                     
 
                   </fieldset>

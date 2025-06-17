@@ -10,6 +10,17 @@ function openNote(note_id) {
     bg.classList.remove('hide');
 
 
+
+
+  
+        // Initial resize
+        
+        // Resize on input
+       
+
+
+
+
     function handleClick(e) {
         if (!selected_note.contains(e.target)) {
             // Submit the form before closing
@@ -34,6 +45,4 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
-
-
 
